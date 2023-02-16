@@ -1,0 +1,3 @@
+dictionary
+myDict = {1:"hello", "rohit": 3, "no problem": "yes"}
+myDict.pop(1) #pops key and value at key 1

@@ -1,0 +1,5 @@
+Good morning
+this is a perfect example from teh file
+lets see if it can read the contents from this
+file and copy it to another file
+elif rehtona ot ti ypoc dna elif
