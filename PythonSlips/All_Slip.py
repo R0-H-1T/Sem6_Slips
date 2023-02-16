@@ -2,7 +2,14 @@
 import datetime
 
 
-def print_pyramid():
+'''
+1.	Write a Python program to print the following pattern.                      
+1
+2 3
+4 5 6
+7 8 9 10
+'''
+def slip1a():
     number = 1
     for i in range(1, 5):
         for j in range(1, i + 1):
@@ -10,19 +17,27 @@ def print_pyramid():
             number += 1
         print()
 
+#slip1a()
 
-def remove_odd_index(str):
+
+'''
+2.	Write a python program to accept string and remove the characters which have odd 
+    index values of given string using user defined function.      
+'''
+def slip1b(str):
     new_str = ''
     for i in range(len(str)):
         if i % 2 == 0: new_str += str[i]
     return new_str
+#my_str = input('Enter a string: ')
+#print(f'Removed letters at odd index: {slip1b(my_str)}')
 
 
-# input_str = input('Enter a string: ')
-# print(f'Removed letters at odd index: {remove_odd_index(input_str)}')
 
-
-def is_armstrong(num):
+'''
+    Print whether given num is armstrong or not
+'''
+def slip2a(num):
     temp = num
     sum = 0
     while temp > 0:
@@ -30,14 +45,19 @@ def is_armstrong(num):
         sum = sum + (rem * rem * rem)
         temp //= 10
     return sum == num
-
-
 # num = int(input('Enter a number: '))
-# print(f'Armstrong number?: {is_armstrong(num)}')
+# print(f'Armstrong number?: {slip2a(num)}')
 
-# UPPERCASE AND LOWERCASE LETTERS COUNT
 
-def lowercase_and_uppercase_count(str):
+
+
+
+'''
+    2.	Write a Python function that accepts a string and calculate the number of 
+    upper case letters and lower case letters.                                                 
+'''
+
+def slip2b(str):
     d = {"Uppercase": 0, "Lowercase": 0}
     for ch in str:
         if ch.isupper():
@@ -51,11 +71,15 @@ def lowercase_and_uppercase_count(str):
     print(f'Lowercase Letters: {d["Lowercase"]}')
 
 
-# lowercase_and_uppercase_count("hello AND weLc O")
+#slip2b("hello AND weLc O")
 
 
-# REVERSE STRING
-def reverse_string(str):
+
+
+'''
+	Write a python program to reverse a string
+'''
+def slip3a(str):
     reverse_str = ''
     n = len(str) - 1
     while n >= 0:
@@ -65,15 +89,18 @@ def reverse_string(str):
     print(f'String reversed: {reverse_str}')
 
 
-# reverse_string("skrow siht os")
+#slip3a("skrow siht os")
 
-# CHECK IF KEY ALREADY EXITS IN DICTIONARY, IF EXISTS REPLACE WITH
-# ANOTHER KEY/VALUE
 
+
+
+'''
+2.	Write a Python program to check if a given key already exists in a dictionary.
+ If key exists replace with another key/value pair
+'''
 dict = {"apple": 1, "banana": 2, "orange": 3, "grape": 4}
 
-
-def check_key(key):
+def slip3d(key):
     print(dict)
     if key in dict:
         print(f'Is present: {key} : {dict[key]}')
@@ -86,12 +113,17 @@ def check_key(key):
         print("Key not present")
 
 
-# check_key("banana")
+#slip3d("banana")
 
-# 1.CHECK IF NUMBER PRIME OR NOT
-# 2.FIND FACTORIAL OF NUMBER
 
-def prime_and_factorial(n):
+
+
+'''
+1.	Write a Python Program to Check if given number is prime or not.
+ Also find factorial of the given number using user defined function.
+'''
+
+def slip4a(n):
     choose = input('Prime(p) or factorial(f): ')
     if choose.upper() == 'P':
         flag = False
@@ -116,10 +148,17 @@ def prime_and_factorial(n):
         print('Invalid key entered.')
 
 
-# prime_and_factorial(4)
+# slip4a(4)
 
 
-# CLASS Student and Test
+
+
+'''
+Write a python script to define a class student having members roll no, name, age, gender. 
+Create a subclass called Test with member marks of 3 subjects. 
+Create three objects of the Test class and display all the details of the student with total marks.                                                                                   
+
+'''
 class Student:
     def __init__(self, rollno, name, age, gender):
         self.rollno = rollno
@@ -149,14 +188,22 @@ t3 = Test(3, 'Neil', 16, 'M', 60, 91, 96)
 # t2.get_marks()
 # t3.get_marks()
 
-# ANONYMOUS FUNCTION TO FIND AREA OF SQUARE AND RECTANGLE
 
+
+'''
+1.	Write an anonymous function to find area of square and rectangle
+'''
 square = lambda s: print(f'Area of square of {s} side is {s*s}')
 rectangle = lambda l, b: print(f'Area of rectangle of l {l} and b {b} is {l*b}')
 
-# s, l, b = input('Enter side of square and length and breadth of rectange:').split()
-# square(int(s))
-# rectangle(int(l), int(b))
+def slip5a():
+    s, l, b = input('Enter side of square and length and breadth of rectange:').split()
+    square(int(s))
+    rectangle(int(l), int(b))
+
+#slip5a()
+
+
 
 
 # CREATE A LIST THAT PRINTS OUT ALL THE NUMBERS THAT ARE < 5
