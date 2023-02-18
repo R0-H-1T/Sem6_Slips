@@ -205,16 +205,27 @@ def slip5a():
 
 
 
-
-# CREATE A LIST THAT PRINTS OUT ALL THE NUMBERS THAT ARE < 5
-
-def less_than_5_in_list(my_list):
+'''
+1.	Create a list a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89] and write a python program that prints out
+ all the elements of the list that are less than 5. 
+'''
+def slip6a(my_list):
     for num in my_list:
         if num < 5:
             print(my_list[num])
 
-# less_than_5_in_list([1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])
+# slip6a([1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])
 
+
+
+
+
+
+'''
+2.	Write a Python class which has two methods get_String and print_String.
+ get_String accept a string from the user and print_String prints the string in upper case. 
+Further modify the program to reverse a string word by word and print it in lower case.                                                                        
+'''
 class Testing_String:
     def get_string(self, user_str):
         self.user_str = user_str
@@ -230,31 +241,43 @@ class Testing_String:
             len_str -= 1
         print(str123)
 
-# Ts1 = Testing_String()
-# Ts1.get_string(input('Enter a string: '))
-# Ts1.print_string()
 
-def slip_71():
-    n = int(input('Enter total numbers:'))
-    if n == 0 : exit(0)
+def slip6b():
+    Ts1 = Testing_String()
+    Ts1.get_string(input('Enter a string: '))
+    Ts1.print_string()
 
-    mylist = input().split()
-    mylist = list(map(int, mylist))
+#slip6b()
+
+
+
+
+
+
+'''
+	Write a Python program to accept n numbers in list and remove duplicates from a list.                                                                                                 
+'''
+def slip7a():
+    mylist = list(map(int, input().split()))
     print(mylist)
 
     final_list = []
-    count = 0
     for num in mylist:
         if num not in final_list:
-            final_list.insert(count, num)
-            count += 1
-        else:
-            pass
+            final_list.append(num)
+    
     print(f'Removed duplicates: {final_list}')
 
+# slip7a()
 
-# slip_71()
 
+
+
+'''
+	Write a python script to define the class Person having members name, address.
+ Create a subclass called Employee with member salary.
+ Create 'n' objects of the Employee class and display all the details of the employees.
+'''
 class Person:
     def __init__(self, name, address):
         self.name = name;
@@ -269,6 +292,7 @@ class Employee(Person):
         print(f'{self.name}, {self.address}, {self.salary}')
 
 
+
 def get_employee():
     name, address, salary =  input('Enter Name, Address and Salary: ').split()
     return Employee(name, address, salary)
@@ -276,23 +300,25 @@ def get_employee():
 def slip7b():
     Employees = []
     n = int(input('Enter number of employees: '))
-    if n == 0:
-        exit(0)
-    if n == 1:
-        Employees.insert(0, get_employee())
 
-    Employees.insert(0, get_employee())
-    for i in range(1, n):
+    for _ in range(n):
         Employees.append(get_employee())
 
     print('Displaying employee records: ')
     for emp in Employees:
-        print(emp.display_details())
+        emp.display_details()
 
-# slip7b()
+#slip7b()
 
-# ENCRYPT A MESSAGE USING KEY VALUE PAIR
 
+
+
+
+
+
+'''
+	Write a  Python program that encrypts a message by adding a key value to every character.  
+'''
 def encrypt_msg(alphabets, msg, key):
     encrypted = ""
     # alphabets.find(letter) // returns index of the letter
@@ -312,18 +338,22 @@ def decrypt_msg(alphabets, msg, key):
     print(f'Decrypted Message: {decrypted}')
     return decrypted
 
-def slip81():
+def slip8a():
     msg = input('Enter a message: ')
     key = 5
     alphabets = "abcdefghijklmnopqrstuvwxyz "
     enc_msg =  encrypt_msg(alphabets, msg, key)
     decrypt_msg(alphabets, enc_msg, key)
 
-# slip81()
+# slip8a()
 
-# CLASS THAT HAS TWO METHODS 1.GET INPUT FORM USER 2.DISPLAY
-# IT IN UPPER CASE
 
+
+
+'''
+	Write a Python script using class, which has two methods get_String and print_String.
+ get_String accept a string from the user and print_String print the string in upper case                                                                             
+'''
 class string_class:
     def get_string(self, str):
         self.str = str
@@ -331,35 +361,45 @@ class string_class:
     def print_string(self):
         print(f'Converted to upper case: {self.str.upper()}')
 
-def slip82():
+def slip8b():
     str = input('Enter a string: ')
     s1= string_class()
     s1.get_string(str)
     s1.print_string()
 
-#slip82()
+#slip8b()
 
-# SCRIPT TO FIND REPEATED ITEMS OF  TUPLE
-def find_repeated_items_in_tuple():
+
+
+
+'''
+	Write a python script to find the repeated items of a tuple. tup=(1,2,2,3,4,4)    
+'''
+def slip9a():
     tup = (1, 2, 2, 3, 4, 4, 3)
     mylist = []
-    print('Repeated Numbers in tuple: ')
-    # OR, although this is better:)
+    print('Repeated Numbers in tuple: ', end="")
+
     for x in tup:
         if tup.count(x) > 1 and x not in mylist:
             mylist.append(x)
-            print(x)
-    print(mylist)
-    #print(f'Duplicates in tuple: {[ num for num in tup if tup.count(num) > 1]}')
+            print(x, end=" ")
 
-# find_repeated_items_in_tuple()
+#slip9a()
 
-# FIND COUNT OF REPEATED CHARACTER IN STRING AND DISPLAY IT
-def find_count_of_repeated_chs():
+
+
+
+'''
+Write a python program to count repeated characters in a string. 
+Sample string: 'thequickbrownfoxjumpsoverthelazydog' 
+Expected output: o-4, e-3, u-2, h-2, r-2, t-2                                           
+'''
+def slip9b():
     mylist = []
-    str = "tttthhhhheeeennnnoooottttt"
+    str = 'thequickbrownfoxjumpsoverthelazydog'
     for letter in str:
-        if letter not in mylist:
+        if str.count(letter) > 1 and letter not in mylist:
             print(f'{letter}: {str.count(letter)}', end=" ")
             mylist.append(letter)
 
@@ -371,17 +411,26 @@ def find_count_of_repeated_chs():
             my_dict[letter] += 1
         else:
             my_dict[letter] = 1
-    print(f'\n{my_dict}')
+    print()
+    for key in my_dict:
+        if my_dict[key] != 1:
+            print(f'{key}:{my_dict[key]} ', end="")
 
-# find_count_of_repeated_chs()
 
+#slip9b()
+
+
+
+'''
+Write a Python program to implement the concept of queue using list
+'''
 class Queue_list:
     def __init__(self):
         self.my_queue = []
         print('Queue constructed..')
 
     def enqueue(self, x):
-        self.my_queue.insert(0, x) if len(self.my_queue) <= 0 else self.my_queue.append(x)
+        self.my_queue.append(x)
 
     def dequeue(self):
         if len(self.my_queue) <= 0:
@@ -404,7 +453,7 @@ class Queue_list:
         print(f'Total elements in queue: {len(self.my_queue)}')
 
 
-def slip101():
+def slip10a():
     q = Queue_list()
     q.enqueue(23)
     q.display_queue()
@@ -426,17 +475,24 @@ def slip101():
     q.display_queue()
 
 
-#slip101()
+#slip10a()
 
-# COUNT LETTER, NOS, UPPERCASE AND LOWERCASE IN A FILE
 
-def slip102():
+
+
+'''
+ 	Write a python program to count number of upper case letters, 
+ small case letters, digits in the file.                                                                            
+'''
+
+def slip10b():
     file = open('my_text.txt', 'r')
 
     lower_case = 0
     upper_case = 0
     digits = 0
     for line in file:
+        print(line)
         for char in line:
             if char.islower(): lower_case += 1
             elif char.isupper(): upper_case += 1
@@ -445,26 +501,33 @@ def slip102():
     file.close()
     print(f'Lower case: {lower_case}, Upper case: {upper_case}, digits: {digits}')
 
-# slip102()
+#slip10b()
 
 
 
-# counts no.of occurrences of character in a string
-def slip111():
-    my_list = []
-    str = input('Enter a string: ')
-    for ch in str:
-        if ch not in my_list:
-            print(f' {ch} : {str.count(ch)}', end=" ")
-            my_list.append(ch)
-#slip111()
+'''
+	Write a  Python program that counts the number of occurrences of a character in a string.                                                                                                  
+'''
+def slip11a(str):
+    my_dict = {}
+    for letter in str:
+        if letter in my_dict:
+            my_dict[letter] += 1
+        else:
+            my_dict[letter] = 1
+    print(my_dict)
+
+#slip11a('couting no.of occurrences of each char')
 
 
 
 
 
-# PRINT A DICTIONARY FROM 1 to n [x : x*x*x]
-def slip121():
+'''
+	Write a Python script to generate and print a dictionary which contains a number (between 1 and n) in the form(x:x*x).
+ Sample Dictionary (n=5) Expected Output: {1:1, 2:4, 3:9, 4:16, 5:25}                                                                                            
+'''
+def slip12a():
     n = int(input('Enter n: '))
     my_dict = {}
     for i in range(1, n+1):
@@ -474,10 +537,15 @@ def slip121():
     print(my_dict)
     print({i : i*i for i in range(1, n+1)})
 
-#slip121()
+#slip12a()
 
-# BUBBLE SORT in PYTHON
 
+
+
+
+'''
+	Write a python script to implement bubble sort using list.                   
+'''
 def bubbleSort(num_list):
     for i in range(0, len(num_list)):
         for j in range(0, len(num_list) - i - 1):
@@ -489,7 +557,7 @@ def bubbleSort(num_list):
     print(num_list)
 
 
-def slip131():
+def slip13a():
     num_list = list(map(int, input('Enter numbers:').split()))
     bubbleSort(num_list)
     print(num_list)
@@ -498,8 +566,13 @@ def slip131():
 
 
 
-# Create a class Rectange with data members height and width
-# and methods area, perimeter
+
+
+
+'''
+	Write a python script to create a class Rectangle with data member’s length, width and methods area, perimeter
+ which can compute the area and perimeter of rectangle
+ '''
 class Rectangle:
     __length__ = 0
     __width__ = 0
@@ -513,45 +586,58 @@ class Rectangle:
     def area(self):
         return self.__length__ * self.__width__
 
-def slip132():
+def slip13b():
     r1 = Rectangle(int(input('Length: ')), int(input('Width: ')))
     print(r1.perimeter())
     print(r1.area())
 
-#slip132()
+#slip13b()
 
 
 
-# TO conert tuple string into integer tuple
+
+
+'''
+	Write a Python program to convert a tuple of string values to a tuple of integer values.
+Original tuple values: (('44', '444'), ('1516', '45')) New tuple values: ((44, 444), (1516, 45))
+'''
 def convert_to_int(my_tuple):
     my_tuple = tuple(int(e) for e in my_tuple)
     print(my_tuple)
 
-def slip141():
+def slip14a():
     my_tuple = (('141', '45'), ('21', '90'))
     my_tuple = tuple(map(convert_to_int, my_tuple))
     print(tuple(tuple(map(int, i) for i in my_tuple)))
 
-# slip141()
+# slip14a()
 
 
-# WRITE A PYTHON TO PROG TO ACCEPT TWO LIST AND MERGE IT INTO
-# A LIST OF TUPLE
 
 
-def slip151():
-    list1 = input('Enter first list: ').split()
-    list1 = list(map(int, list1))
-    list2 = input('Enter second list: ').split()
-    list2 = list(map(int, list2))
+
+'''
+	Write a Python program to accept two lists and merge the two lists into list of tuple
+'''
+def slip15a():
+    list1 = list(map(int, input('Enter first list: ').split()))
+    
+    list2 = list(map(int, input('Enter second list: ').split()))
 
     my_tuple = tuple(list1 + list2)
     print(my_tuple)
 
-# slip151()
+#slip15a()
 
-# Create a class cricle to find out circumference and area of circle
 
+
+
+
+
+'''
+	Write a python program to create a class Circle and compute the Area and 
+the circumferences of the circle.(use parameterized constructor)                                                                                    
+'''
 
 class MyCircle:
     def __init__(self, r):
@@ -564,16 +650,25 @@ class MyCircle:
         return 2*3.14*self.r
 
 
-def slip152():
+def slip15b():
     r = float(input('Enter radius of circle: '))
     c = MyCircle(r)
     print(f'Circumference of circle: {c.circum_circle()}')
     print(f'Area of circle: {c.area_circle()}')
 
-# slip152()
+# slip15b()
 
-# SORT A DICTIONARY BY KEY - Ascending and Descending
-def slip161():
+
+
+
+
+
+
+'''
+	Write a Python script to sort (ascending and descending order)  a dictionary by key
+'''
+
+def slip16a():
     my_dict = {89: 'Bugatti', 2: 'Porsche', 3: 'BMW', 54: 'Lexus', 23: 'Ferrari', -4: 'Tesla'}
     for k in sorted(my_dict):
         print(f'{k} : {my_dict[k]}')
@@ -581,8 +676,18 @@ def slip161():
     for k in reversed(sorted(my_dict)):
         print(f'{k} : {my_dict[k]}')
 
-# slip161()
+# slip16a()
 
+
+
+
+
+
+'''
+	Define a class named Shape and its subclass Square. 
+The subclass has an init function which takes an argument Length. 
+Both classes should have methods to calculate area and perimeter of a given shape.                                                                       
+'''
 class Shape:
     def __init__(self, l):
         self.l = l
@@ -598,22 +703,41 @@ class Square(Shape):
     def sq_perimter(self):
         return 4*self.l
 
-def slip162():
+def slip16b():
     len = int(input('Enter length: '))
     sq = Square(len)
     print(f'Area of square {sq.sq_area()}')
     print(f'Perimeter of square: {sq.sq_perimter()}')
 
-#slip162()
+#slip16b()
 
-def slip171():
+
+
+
+
+
+'''
+	Write a Python program to unzip a list of tuples into individual lists.
+                 L= [(1,2), (3,4), (8,9)]
+'''
+def slip17a():
     l = [(1, 2), (3, 4), (5, 6)]
     l = list(map(list, l))
     for lis in l:
         print(lis)
 
-# slip171()
+# slip17a()
 
+
+
+
+
+
+
+'''
+	Write Python program that has a class Person storing name and date of birth(DOB) of a person. Subtract the DOB from today’s date
+ to find out whether a person is eligible to vote or not
+ '''
 class Person:
     def __init__(self, name, dob):
         self.name = name
@@ -626,16 +750,26 @@ class Person:
             return True
         return False
 
-def slip172():
+def slip17b():
     name = input('Enter Name: ')
     dob = input('Enter date of birth (d:m:y): ').split()
     dob = list(map(int, dob))
     p1 = Person(name, dob)
     print(p1.is_eligible())
 
-# slip172()
+# slip17b()
 
-def slip181():
+
+
+
+
+'''
+	Write a Python program to compute element-wise sum of given tuples.
+        Original tuples: (1, 2, 3, 4) (3, 5, 2, 1) (2, 2, 3, 1)
+        Element-wise sum of the said tuples: (6, 9, 8, 6) 
+
+'''
+def slip18a():
     my_tuple = (1, 3, 4, 5), (2, 6, 8, 9), (5, 3, 6, 1)
     #
     # print(my_tuple)
@@ -651,28 +785,10 @@ def slip181():
     x = zip(x for x in my_tuple)
     print(x)
 
-#slip181()
+#slip18a()
 
 
 
-class MyEmployee:
-    def accept_details(self, id, name, dept, sal):
-        self.id = id
-        self.name = name
-        self.dept = dept
-        self.sal = sal
-
-    def display(self):
-        print(f'{self.id}, {self.name}, {self.dept}, {self.sal}')
-
-
-# class MyManager(MyEmployee):
-    # def accept_details(self, id, name, dept, sal, bonus):
-    #    super().__init__(id, name, dept, sal)
 
 
 
-# Pickle python program to write and read a data from a
-# file stating the position
-# of the file object. (Using dump(), load() functions).
-#https://www.youtube.com/source/bXocWfvja2Y/shorts?bp=8gU2CikSJwoLYlhvY1dmdmphMlkSC2JYb2NXZnZqYTJZGgtiWG9jV2Z2amEyWSj1otjhi4zM5YwB
