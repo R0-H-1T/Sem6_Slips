@@ -32,8 +32,8 @@ fi
 
 
 
-val=`expr true && false`
-echo $val
+val=`expr 2 + 3`
+echo "$val from val"
 
 abool=true
 anotherbool=false
